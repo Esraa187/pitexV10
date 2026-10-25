@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>PITEX</title>
+  <link rel="icon" href="assets/images/pitex-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link id="bsCss" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <main id="loginView" class="login-wrap" hidden>
+    <form id="loginForm" class="login-card" novalidate>
+      <button type="button" class="lang-btn lang-btn--float" data-lang-toggle><i class="bi bi-globe2"></i><span data-lang-label></span></button>
+      <img src="assets/images/pitex-logo.png" alt="PITEX" height="52" class="mb-3">
+      <h1 class="h5 fw-bold mb-3" data-i18n="login.title"></h1>
+      <div id="loginError" class="alert alert-danger py-2 d-none" role="alert"></div>
+      <label class="form-label" for="loginEmail" data-i18n="login.email"></label>
+      <input id="loginEmail" type="email" class="form-control mb-3" dir="ltr" autocomplete="username" required>
+      <label class="form-label" for="loginPassword" data-i18n="login.password"></label>
+      <input id="loginPassword" type="password" class="form-control mb-4" dir="ltr" autocomplete="current-password" required>
+      <button id="loginBtn" type="submit" class="btn btn-pitex w-100" data-i18n="login.submit"></button>
+    </form>
+  </main>
+
+  <div id="dashView" class="shell" hidden>
+    <aside class="side" id="side">
+      <div class="side__brand"><span class="side__mark"><i class="bi bi-buildings"></i></span><div><strong>PITEX</strong><small data-i18n="brand.sub"></small></div></div>
+      <nav class="side__nav" aria-label="Dashboard">
+        <a class="side__link" href="#/lines" data-nav="lines"><i class="bi bi-grid-1x2"></i><span data-i18n="nav.lines"></span></a>
+        <a class="side__link" href="#/machines" data-nav="machines"><i class="bi bi-gear-wide-connected"></i><span data-i18n="nav.machines"></span></a>
+      </nav>
+      <div class="side__foot">
+        <a class="side__link" href="index.html" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i><span data-i18n="nav.site"></span></a>
+        <button id="logoutBtn" class="side__link side__link--out" type="button"><i class="bi bi-box-arrow-right"></i><span data-i18n="nav.logout"></span></button>
+      </div>
+    </aside>
+    <div class="side-backdrop" id="backdrop"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn menu-btn" type="button" data-i18n-attr-aria-label="nav.menu"><i class="bi bi-list"></i></button>
+        <nav class="crumbs" id="crumbs" aria-label="breadcrumb"></nav>
+        <label class="search"><i class="bi bi-search"></i><input id="globalSearch" type="search" data-i18n-attr-placeholder="search.global"></label>
+        <button type="button" class="lang-btn" data-lang-toggle><i class="bi bi-globe2"></i><span data-lang-label></span></button>
+        <div class="user"><span class="user__av" id="userAv"></span><span class="user__mail" id="userMail"></span></div>
+      </header>
+
+      <div id="page" class="page"></div>
+
+      <footer class="foot"><span data-i18n="foot.copy"></span></footer>
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="cfTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-body text-center p-4">
+        <div class="cf-icon"><i class="bi bi-trash3"></i></div>
+        <h2 class="h5 fw-bold" id="cfTitle"></h2><p id="cfText" class="text-muted mb-4"></p>
+        <div class="d-flex gap-2 justify-content-center">
+          <button type="button" class="btn btn-soft" data-bs-dismiss="modal" data-i18n="btn.cancel"></button>
+          <button type="button" id="cfOk" class="btn btn-danger rounded-pill px-4" data-i18n="btn.delete"></button>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <div id="toasts" class="toast-box" aria-live="polite"></div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="assets/js/products-data.js"></script>
+  <script defer src="assets/js/categories-data.js"></script>
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>
